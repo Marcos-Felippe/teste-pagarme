@@ -45,7 +45,7 @@ export async function addPedidoPix(){
             headers: {
                 accept: 'application/json',
                 'content-type': 'application/json',
-                authorization: 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
+                authorization: 'Basic ' + Buffer.from("sk_test_ef983497efcb431688b6b9ffeeeff3b3:").toString('base64')
             },
             data: {
                 customer: {
