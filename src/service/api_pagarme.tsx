@@ -45,20 +45,39 @@ export async function addPedidoPix(){
             headers: {
                 accept: 'application/json',
                 'content-type': 'application/json',
-                authorization: 'Basic ' + Buffer.from("sk_test_ef983497efcb431688b6b9ffeeeff3b3:").toString('base64')
+                authorization: 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
             },
             data: {
                 customer: {
-                phones: {mobile_phone: {country_code: '55', area_code: '19', number: '123456789'}},
-                name: 'Tony Stark',
-                type: 'individual',
-                email: 'avengerstark@ligadajustica.com.br',
-                document: '12345678912',
-                document_type: 'CPF'
+                  address: {
+                    country: 'BR',
+                    state: 'SP',
+                    city: 'Cidade',
+                    zip_code: '12350123',
+                    line_1: 'Rua Tal'
+                  },
+                  phones: {mobile_phone: {country_code: '55', area_code: '19', number: '12345678'}},
+                  name: 'Tony Stark',
+                  email: 'avengerstark@ligadajustica.com.br'
                 },
-                items: [{amount: 3000, description: 'Chaveiro do Tesseract', quantity: 1, code: '1'}],
-                payments: [{Pix: {expires_in: 3600}, payment_method: 'pix'}]
-            }
+                items: [{amount: 2990, description: 'Chaveiro do Tesseract', quantity: 1, code: '1'}],
+                payments: [
+                  {
+                    payment_method: 'credit_card',
+                    credit_card: {
+                      installments: 1,
+                      statement_descriptor: 'AVENGERS',
+                      card: {
+                        cvv: '123',
+                        number: '4000000000000010',
+                        holder_name: 'Tony Stark',
+                        exp_month: 1,
+                        exp_year: 30
+                      }
+                    }
+                  }
+                ]
+              }
             };
 
         axios
