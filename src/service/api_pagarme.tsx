@@ -91,11 +91,8 @@ export async function addPedidoPix(){
               method: 'GET',
               url: 'https://api.pagar.me/core/v5/orders/or_6kmQbJxf2HxRQYBr',
               headers: {
-                'accept': 'application/json',
-                'content-type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-                'Authorization': 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
+                accept: 'application/json',
+                authorization: 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
               }
             };
             
