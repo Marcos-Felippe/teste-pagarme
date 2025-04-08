@@ -38,64 +38,71 @@ export async function addPedidoPix(){
         );
 
         console.log(response);*/
+
+        /*
         
         const options = {
             method: 'POST',
             url: 'https://api.pagar.me/core/v5/orders',
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                authorization: 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
+              accept: 'application/json',
+              'content-type': 'application/json',
+              authorization: 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
             },
             data: {
-                customer: {
-                  address: {
-                    country: 'BR',
-                    state: 'SP',
-                    city: 'Cidade',
-                    zip_code: '12350123',
-                    line_1: 'Rua Tal'
-                  },
-                  phones: {mobile_phone: {country_code: '55', area_code: '19', number: '12345678'}},
-                  name: 'Tony Stark',
-                  email: 'avengerstark@ligadajustica.com.br'
+              customer: {
+                address: {
+                  country: 'BR',
+                  state: 'SP',
+                  city: 'Cidade',
+                  zip_code: '12350123',
+                  line_1: 'Rua Tal'
                 },
-                items: [{amount: 2990, description: 'Chaveiro do Tesseract', quantity: 1, code: '1'}],
-                payments: [
-                  {
-                    payment_method: 'credit_card',
-                    credit_card: {
-                      installments: 1,
-                      statement_descriptor: 'AVENGERS',
-                      card: {
-                        cvv: '123',
-                        number: '4000000000000010',
-                        holder_name: 'Tony Stark',
-                        exp_month: 1,
-                        exp_year: 30
-                      }
+                phones: {mobile_phone: {country_code: '55', area_code: '19', number: '12345678'}},
+                name: 'Tony Stark',
+                email: 'avengerstark@ligadajustica.com.br'
+              },
+              items: [{amount: 2990, description: 'Chaveiro do Tesseract', quantity: 1, code: '1'}],
+              payments: [
+                {
+                  payment_method: 'credit_card',
+                  credit_card: {
+                    installments: 1,
+                    statement_descriptor: 'AVENGERS',
+                    card: {
+                      cvv: '123',
+                      number: '4000000000000010',
+                      holder_name: 'Tony Stark',
+                      exp_month: 1,
+                      exp_year: 30
                     }
                   }
-                ]
+                }
+              ]
+            }
+          };
+          
+          axios
+            .request(options)
+            .then(res => console.log(res.data))
+            .catch(err => console.error(err));*/
+        
+            const options = {
+              method: 'GET',
+              url: 'https://api.pagar.me/core/v5/orders/or_6kmQbJxf2HxRQYBr',
+              headers: {
+                'accept': 'application/json',
+                'content-type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                'Authorization': 'Basic c2tfdGVzdF9lZjk4MzQ5N2VmY2I0MzE2ODhiNmI5ZmZlZWVmZjNiMzo='
               }
             };
-
-        axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-                return {
-                    error: false,
-                    response: response.data
-                }
-            })
-            .catch(function (error) {
-                console.error(error);
-                return {
-                    error: true,
-                    response: null
-                }
-            });
+            
+            axios
+              .request(options)
+              .then(res => console.log(res.data))
+              .catch(err => console.error(err));
         
         
 
